@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :logged_in_redirect, only: %i[new create]
+
   def new; end
 
   def create
@@ -17,5 +19,11 @@ class SessionsController < ApplicationController
     session.delete(:current_user_id)
     flash[:success] = 'You have logged out successfully'
     redirect_to login_path
+  end
+
+  private
+
+  def logged_in_redirect
+    redirect_to root_path, flash: { yellow: 'You are already logged in' } if logged_in?
   end
 end
