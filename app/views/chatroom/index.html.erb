@@ -13,14 +13,16 @@
         </div>
       </div>
       <div class="extra content">
-        <form class="ui reply form">
+        <%= form_for :message, url: message_path, html: { class: "ui reply form" } do |f| %>
           <div class="field">
             <div class="ui fluid icon input">
-              <input type="text" placeholder="Type messages..." autofocus>
-              <i class="bordered inverted yellow edit icon"></i>
+              <%= f.text_field :body, { placeholder: 'Type message...', autofocus: true } %>
+              <%= button_tag type: 'submit', class: "ui yellow button" do %>
+                Send
+              <% end %>
             </div>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>
