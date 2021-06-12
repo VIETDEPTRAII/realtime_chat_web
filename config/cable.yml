@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://redistogo:dde7c2bd98d2b0e3b6f1eb0fd68ba88c@scat.redistogo.com:11993/
+  url: ENV['REDISTOGO_URL']
   # channel_prefix: realtime_chat_web_production
